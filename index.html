@@ -1,15 +1,37 @@
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import './styles.css';
+
+const generateRandomChars = () => {
+  const chars = '0123456789ABCDEF';
+  let result = '';
+  for (let i = 0; i < 300; i++) {
+    result += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return result;
+};
 
 export default function SpinningBud() {
+  const [characters, setCharacters] = useState(generateRandomChars());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCharacters(generateRandomChars());
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-black">
       <motion.div
-        className="relative w-64 h-64 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 p-4 overflow-hidden"
+        className="relative w-64 h-64 rounded-full bg-gradient-to-br from-green-400 to-blue-500 p-4 overflow-hidden"
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 10, ease: 'linear' }}
-      >=
-        <div className="absolute inset-0 bg-gradient-to-r from-green-400 via-purple-500 to-blue-500 opacity-30 animate-pulse"></div>
-        <img src="/mnt/data/4bb3e080-d330-4935-af84-f47b71588d75.png" alt="Weed Bud" className="relative w-full h-full object-cover rounded-full mix-blend-screen" />
+      >
+        <div className="absolute inset-0 flex items-center justify-center text-green-300 font-mono text-xs leading-tight">
+          {characters}
+        </div>
       </motion.div>
     </div>
   );
