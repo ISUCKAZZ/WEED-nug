@@ -4,11 +4,12 @@ export default function SpinningBud() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-black">
       <motion.div
-        className="w-48 h-48"
+        className="relative w-64 h-64 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 p-4 overflow-hidden"
         animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 5, ease: 'linear' }}
-      >
-        <img src="https://images.steamusercontent.com/ugc/2036244699136832949/3ED083D9D1ED808CC279F93E871442E68485311C/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="Weed Bud" className="w-full h-full object-contain" />
+        transition={{ repeat: Infinity, duration: 10, ease: 'linear' }}
+      >=
+        <div className="absolute inset-0 bg-gradient-to-r from-green-400 via-purple-500 to-blue-500 opacity-30 animate-pulse"></div>
+        <img src="/mnt/data/4bb3e080-d330-4935-af84-f47b71588d75.png" alt="Weed Bud" className="relative w-full h-full object-cover rounded-full mix-blend-screen" />
       </motion.div>
     </div>
   );
