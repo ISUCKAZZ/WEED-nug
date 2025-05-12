@@ -1,41 +1,13 @@
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import './styles.css';
-
-const generateRandomChars = () => {
-  const chars = '0123456789ABCDEF';
-  let lines = [];
-
-  for (let i = 0; i < 30; i++) {
-    let line = '';
-    for (let j = 0; j < 20; j++) {
-      line += chars[Math.floor(Math.random() * chars.length)];
-    }
-    lines.push(line);
-  }
-
-  return lines.join('\n');
-};
-
-export default function SpinningBud() {
-  const [characters, setCharacters] = useState(generateRandomChars());
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCharacters(generateRandomChars());
-    }, 100);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-black">
-      <motion.div
-        className="matrix-glow"
-        animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 10, ease: 'linear' }}
-      >
-        <pre className="matrix-text">{characters}</pre>
-      </motion.div>
-    </div>
-  );
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrix Spin</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/main.jsx"></script>
+  </body>
+</html>

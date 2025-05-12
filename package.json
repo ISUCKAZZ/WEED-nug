@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "framer-motion": "^10.12.16",
+    "react": "^18.x",
+    "react-dom": "^18.x"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.x"
+  }
+}
